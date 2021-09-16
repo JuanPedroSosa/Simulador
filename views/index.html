@@ -6,22 +6,7 @@
   </head>
   <body>
     <h1>Simulación de inflado</h1>
-		<h2 id="prueba">información recibida</h2>
+		<h2 id="prueba">esperando mensaje ...</h2>
   </body>
-	<script src="/socket.io/socket.io.js"></script>
-  <script>
-	var socket = io();
-
-
-	// Emit ready event.
-	socket.emit('ready')
-	var messages = document.getElementById('prueba');
-
-	// Listen for the talk event.
-	socket.on('inflar', function(data) {
-		console.log("estoy inflando: ", data);
-		messages.innerHTML = data
-	})
-
-  </script>
+	<script src="./socket.io.js"></script>
 </html>

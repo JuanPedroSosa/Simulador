@@ -5,17 +5,19 @@ const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
-// const app = require("express")();
-var path = require("path");
+const path = require("path");
+
 const port = process.env.PORT || 5000;
+const DIST_DIR = __dirname;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(express.static(DIST_DIR));
 // settings
 app.set('port', port);
        // set our port
 //view engine setup
 app.set("views", path.join(__dirname, "views")); //setting views directory for views.
-app.set("view engine", "hbs"); //setting view engine as handlebars
+//app.set("view engine", "hbs"); //setting view engine as handlebars
 
 app.get("/", (req, res) => {
 	arr = [new Date(), "Disponible"];
